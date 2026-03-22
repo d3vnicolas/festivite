@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Festivite</title>
+    <link rel="stylesheet" href="./style/globals.css">
+</head>
+
+<body>
+    <main class="main">
+        <section class="logo-image">
+            <img class="logo-image__icon" src="./public/images/Logo.svg" alt="Imagem da logomarca">
+            <h1 class="logo-image__title">Festivite</h1>
+            <p class="logo-image__subtitle">Crie um convite digital para seu evento</p>
+        </section>
+        <section class="content">
+            <div class="content__container">
+                <h1 class="content__title">Crie seu convite</h1>
+                <form class="content__form" action="#">
+                    <div class="content__form-title">
+                        <i data-lucide="calendar"></i>
+                        <strong>Sobre o evento</strong>
+                    </div>
+                    <div class="w-full">
+                        <fieldset>
+                            <label for="title">Título</label>
+                            <input type="text" placeholder="Nome do evento" id="title">
+                        </fieldset>
+                    </div>
+                    <div class="w-half">
+                        <fieldset>
+                            <label for="date-start">Início</label>
+                            <input type="datetime-local" id="date-start">
+                        </fieldset>
+                    </div>
+                    <div class="w-half">
+                        <fieldset>
+                            <label for="date-end">Fim</label>
+                            <input type="datetime-local" id="date-end">
+                        </fieldset>
+                    </div>
+                    <div class="w-half">
+                        <fieldset class="slide-selection">
+                            <label>
+                                <span>Tipo</span>
+                                <input type="checkbox" id="type">
+                                <ul>
+                                    <li>
+                                        <i data-lucide="building-2"></i> Presencial
+                                    </li>
+                                    <li>
+                                        <i data-lucide="video"></i> Online
+                                    </li>
+                                </ul>
+                            </label>
+                        </fieldset>
+                    </div>
+                    <div class="w-half">
+                        <fieldset>
+                            <label for="location">Local</label>
+                            <input type="text" placeholder="Link ou endereço" id="location">
+                        </fieldset>
+                    </div>
+                    <div class="w-full">
+                        <fieldset>
+                            <label for="description">Descrição</label>
+                            <textarea id="description" name="description"
+                                placeholder="Escreva sobre os detalhes do evento"></textarea>
+                        </fieldset>
+                    </div>
+                    <div class="content__form-title">
+                        <i data-lucide="paintbrush-vertical"></i>
+                        <strong>Personalização</strong>
+                    </div>
+                    <div class="w-full">
+                        <fieldset>
+                            <label for="main-color">Cor principal</label>
+                            <div class="wrapper-colors">
+                                <input type="radio" name="color" id="main-color-blue" value="#59B2FF">
+                                <input type="radio" name="color" id="main-color-purple" value="#6A59FF">
+                                <input type="radio" name="color" id="main-color-pink" value="#B259FF">
+                                <input type="radio" name="color" id="main-color-magenta" value="#FF59F9">
+                                <input type="radio" name="color" id="main-color-red" value="#FF598B">
+                                <input type="radio" name="color" id="main-color-orange" value="#FF5959">
+                                <input type="radio" name="color" id="main-color-peach" value="#FF8B59">
+                                <input type="radio" name="color" id="main-color-yellow" value="#FFCD59">
+                                <input type="radio" name="color" id="main-color-lime" value="#E1FF59">
+                                <input type="radio" name="color" id="main-color-green" value="#59FF91">
+                                <input type="radio" name="color" id="main-color-cyan" value="#59FFF9">
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <span>Tema do evento</span>
+                            <div class="wrapper-themes">
+                                <label for="birthday">
+                                    <img src="./public/images/themes/aniversario.jpg" alt="Tema de aniversário">
+                                    <span>Aniversário</span>
+                                    <input type="radio" name="theme" id="birthday" value="birthday">
+                                </label>
+                                <label for="kids">
+                                    <img src="./public/images/themes/infantil.jpg" alt="Tema infantil">
+                                    <span>Infantil</span>
+                                    <input type="radio" name="theme" id="kids" value="kids">
+                                </label>
+                                <label for="graduation">
+                                    <img src="./public/images/themes/formatura.jpg" alt="Tema de formatura">
+                                    <span>Formatura</span>
+                                    <input type="radio" name="theme" id="graduation" value="graduation">
+                                </label>
+                                <label for="marriage">
+                                    <img src="./public/images/themes/casamento.jpg" alt="Tema de casamento">
+                                    <span>Casamento</span>
+                                    <input type="radio" name="theme" id="marriage" value="marriage">
+                                </label>
+                                <label for="baby-shower">
+                                    <img src="./public/images/themes/chadebebe.jpg" alt="Tema de chá de bebê">
+                                    <span>Chá de bebê</span>
+                                    <input type="radio" name="theme" id="baby-shower" value="baby-shower">
+                                </label>
+                                <label for="kitchen-shower">
+                                    <img src="./public/images/themes/chadepanela.jpg" alt="Tema de chá de panela">
+                                    <span>Chá de panela</span>
+                                    <input type="radio" name="theme" id="kitchen-shower" value="kitchen-shower">
+                                </label>
+                                <label for="carnival">
+                                    <img src="./public/images/themes/carnaval.jpg" alt="Tema de carnaval">
+                                    <span>Carnaval</span>
+                                    <input type="radio" name="theme" id="carnival" value="carnival">
+                                </label>
+                                <label for="easter">
+                                    <img src="./public/images/themes/pascoa.jpg" alt="Tema de Páscoa">
+                                    <span>Páscoa</span>
+                                    <input type="radio" name="theme" id="easter" value="easter">
+                                </label>
+                                <label for="saint-john">
+                                    <img src="./public/images/themes/saojoao.jpg" alt="Tema de São João">
+                                    <span>São João</span>
+                                    <input type="radio" name="theme" id="saint-john" value="saint-john">
+                                </label>
+                                <label for="halloween">
+                                    <img src="./public/images/themes/halloween.jpg" alt="Tema de Halloween">
+                                    <span>Halloween</span>
+                                    <input type="radio" name="theme" id="halloween" value="halloween">
+                                </label>
+                                <label for="christmas">
+                                    <img src="./public/images/themes/natal.jpg" alt="Tema de Natal">
+                                    <span>Natal</span>
+                                    <input type="radio" name="theme" id="christmas" value="christmas">
+                                </label>
+                                <label for="other">
+                                    <img src="./public/images/themes/outro.jpg" alt="Tema de Outros">
+                                    <span>Outros</span>
+                                    <input type="radio" name="theme" id="other" value="other">
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="wrapper-style">
+                        <fieldset>
+                            <span>Estilo</span>
+                            <label class="toggle">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </fieldset>
+                    </div>
+                    <div class="wrapper-banner">
+                        <fieldset>
+                            <span>Foto de capa</span>
+                            <input type="file" id="banner" accept="image/*">
+                        </fieldset>
+                    </div>
+                    <div class="content__form-title">
+                        <i data-lucide="contact"></i>
+                        <strong>Dados para contato</strong>
+                    </div>
+                    <div class="w-full">
+                        <fieldset>
+                            <label for="contact-name">Nome</label>
+                            <input type="text" placeholder="Nome completo" id="contact-name">
+                        </fieldset>
+                    </div>
+                    <div class="w-half">
+                        <fieldset>
+                            <label for="contact-email">E-mail</label>
+                            <input type="email" placeholder="exemplo@email.com" id="contact-email">
+                        </fieldset>
+                    </div>
+                    <div class="w-half">
+                        <fieldset>
+                            <label for="contact-phone">Telefone</label>
+                            <input type="tel" placeholder="(99) 99999-9999" id="contact-phone">
+                        </fieldset>
+                    </div>
+                    <hr>
+                    <div class="w-full">
+                        <div class="wrapper-checks">
+                            <input type="checkbox" name="termos" id="terms">
+                            <label for="terms">Li e concordo com os <a href="#">Termos e Condições </a>e com a <a
+                                    href="#">Política de Privacidade</a></label>
+                        </div>
+
+                        <div class="wrapper-checks">
+                            <input type="checkbox" name="updates-email" id="updates-email">
+                            <label for="updates-email">Aceito receber atualizações e promoções por e-mail</label>
+                        </div>
+                        <div class="wrapper-checks">
+                            <input type="checkbox" name="updates-sms" id="updates-sms">
+                            <label for="updates-sms">Aceito receber atualizações e promoções por SMS</label>
+                        </div>
+                    </div>
+                    <div class="w-full">
+                        <button type="submit"><i data-lucide="ticket"></i> Gerar convite</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="./main.js"></script>
+</body>
+
+</html>
