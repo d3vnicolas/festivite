@@ -12,7 +12,7 @@ $color-accent-gree: #59ff91;
 $color-accent-cyan: #59fff9;
 $color-accent-navy: #6a59ff;
 
-$color-fanger: #ff5959;
+$color-danger: #ff5959;
 
 $color-input-base: #1c1f21;
 $color-input-stroke: #363b40;
@@ -58,10 +58,10 @@ $color-text-heading: #f9f9f9;
     width: calc(50% - 8px);
 }
 
-$sliderBackground: #cccccc;
-$sliderDotBackground: #ffffff;
-$sliderBackgroundOn: #2ca60a;
-$sliderHeight: 22px;
+$sliderBackground: $color-input-base;
+$sliderDotBackground: $color-shape-button;
+$sliderBackgroundOn: $color-brand-light;
+$sliderHeight: 32px;
 $borderProportional: if(
     $sliderHeight < 32px,
     $sliderHeight * 0.3,
@@ -83,6 +83,7 @@ $borderProportional: if(
                 background-color: $sliderBackgroundOn;
 
                 &::after {
+                    background-color: $color-text-heading;
                     left: calc(100% - #{$sliderHeight} / 2);
                 }
             }
@@ -92,11 +93,12 @@ $borderProportional: if(
     .slider {
         background: $sliderBackground;
         border-radius: $sliderHeight;
+        border: 1px solid $color-input-stroke;
         display: block;
         height: $sliderHeight;
         position: relative;
         transition: all 300ms ease;
-        width: calc(#{$sliderHeight} * 2.5);
+        width: 64px;
 
         &::after {
             background-color: $sliderDotBackground;
