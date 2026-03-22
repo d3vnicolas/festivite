@@ -26,19 +26,22 @@
                     <div class="w-full">
                         <fieldset>
                             <label for="title">Título</label>
-                            <input type="text" placeholder="Nome do evento" id="title">
+                            <input data-required type="text" placeholder="Nome do evento" id="title">
+                            <span class="message-error"><i data-lucide="alert-circle"></i> Este campo é obrigatório</span>
                         </fieldset>
                     </div>
                     <div class="w-half">
                         <fieldset>
                             <label for="date-start">Início</label>
-                            <input type="datetime-local" id="date-start">
+                            <input data-required type="datetime-local" id="date-start">
+                            <span class="message-error"><i data-lucide="alert-circle"></i> Este campo é obrigatório</span> 
                         </fieldset>
                     </div>
                     <div class="w-half">
                         <fieldset>
                             <label for="date-end">Fim</label>
-                            <input type="datetime-local" id="date-end">
+                            <input data-required type="datetime-local" id="date-end">
+                            <span class="message-error"><i data-lucide="alert-circle"></i> Este campo é obrigatório</span>
                         </fieldset>
                     </div>
                     <div class="w-half">
@@ -48,10 +51,10 @@
                                 <input type="checkbox" id="type">
                                 <ul>
                                     <li>
-                                        <i data-lucide="building-2"></i> Presencial
+                                        <i data-lucide="building-2"></i> <span data-text="Presencial">Presencial</span>
                                     </li>
                                     <li>
-                                        <i data-lucide="video"></i> Online
+                                        <i data-lucide="video"></i> <span data-text="Online">Online</span>
                                     </li>
                                 </ul>
                             </label>
@@ -60,7 +63,8 @@
                     <div class="w-half">
                         <fieldset>
                             <label for="location">Local</label>
-                            <input type="text" placeholder="Link ou endereço" id="location">
+                            <input data-required type="text" placeholder="Link ou endereço" id="location">
+                            <span class="message-error"><i data-lucide="alert-circle"></i> Este campo é obrigatório</span>
                         </fieldset>
                     </div>
                     <div class="w-full">
@@ -76,80 +80,113 @@
                     </div>
                     <div class="w-full">
                         <fieldset>
-                            <label for="main-color">Cor principal</label>
+                            <label for="main-color-blue">Cor principal</label>
                             <div class="wrapper-colors">
-                                <input type="radio" name="color" id="main-color-blue" value="#59B2FF">
-                                <input type="radio" name="color" id="main-color-purple" value="#6A59FF">
-                                <input type="radio" name="color" id="main-color-pink" value="#B259FF">
-                                <input type="radio" name="color" id="main-color-magenta" value="#FF59F9">
-                                <input type="radio" name="color" id="main-color-red" value="#FF598B">
-                                <input type="radio" name="color" id="main-color-orange" value="#FF5959">
-                                <input type="radio" name="color" id="main-color-peach" value="#FF8B59">
-                                <input type="radio" name="color" id="main-color-yellow" value="#FFCD59">
-                                <input type="radio" name="color" id="main-color-lime" value="#E1FF59">
-                                <input type="radio" name="color" id="main-color-green" value="#59FF91">
-                                <input type="radio" name="color" id="main-color-cyan" value="#59FFF9">
+                                <label class="wrapper-color-radio">
+                                    <input type="radio" name="color" id="main-color-blue" checked value="#59B2FF">
+                                    <i style="--color: #59B2FF;"></i>
+                                </label>
+                                <label class="wrapper-color-radio">
+                                    <input type="radio" name="color" id="main-color-purple" value="#6A59FF">
+                                    <i style="--color: #6A59FF;"></i>
+                                </label>
+                                <label class="wrapper-color-radio">
+                                    <input type="radio" name="color" id="main-color-pink" value="#B259FF">
+                                    <i style="--color: #B259FF;"></i>
+                                </label>
+                                <label class="wrapper-color-radio">
+                                    <input type="radio" name="color" id="main-color-magenta" value="#FF59F9">
+                                    <i style="--color: #FF59F9;"></i>
+                                </label>
+                                <label class="wrapper-color-radio">
+                                    <input type="radio" name="color" id="main-color-red" value="#FF598B">
+                                    <i style="--color: #FF598B;"></i>
+                                </label>
+                                <label class="wrapper-color-radio">
+                                    <input type="radio" name="color" id="main-color-orange" value="#FF5959">
+                                    <i style="--color: #FF5959;"></i>
+                                </label>
+                                <label class="wrapper-color-radio">
+                                    <input type="radio" name="color" id="main-color-peach" value="#FF8B59">
+                                    <i style="--color: #FF8B59;"></i>
+                                </label>
+                                <label class="wrapper-color-radio">
+                                    <input type="radio" name="color" id="main-color-yellow" value="#FFCD59">
+                                    <i style="--color: #FFCD59;"></i>
+                                </label>
+                                <label class="wrapper-color-radio">
+                                    <input type="radio" name="color" id="main-color-lime" value="#E1FF59">
+                                    <i style="--color: #E1FF59;"></i>
+                                </label>
+                                <label class="wrapper-color-radio">
+                                    <input type="radio" name="color" id="main-color-green" value="#59FF91">
+                                    <i style="--color: #59FF91;"></i>
+                                </label>
+                                <label class="wrapper-color-radio">
+                                    <input type="radio" name="color" id="main-color-cyan" value="#59FFF9">
+                                    <i style="--color: #59FFF9;"></i>
+                                </label>
                             </div>
                         </fieldset>
                         <fieldset>
                             <span>Tema do evento</span>
                             <div class="wrapper-themes">
-                                <label for="birthday">
+                                <label>
                                     <img src="./public/images/themes/aniversario.jpg" alt="Tema de aniversário">
                                     <span>Aniversário</span>
-                                    <input type="radio" name="theme" id="birthday" value="birthday">
+                                    <input type="radio" name="theme" id="birthday" checked value="birthday">
                                 </label>
-                                <label for="kids">
+                                <label>
                                     <img src="./public/images/themes/infantil.jpg" alt="Tema infantil">
                                     <span>Infantil</span>
                                     <input type="radio" name="theme" id="kids" value="kids">
                                 </label>
-                                <label for="graduation">
+                                <label>
                                     <img src="./public/images/themes/formatura.jpg" alt="Tema de formatura">
                                     <span>Formatura</span>
                                     <input type="radio" name="theme" id="graduation" value="graduation">
                                 </label>
-                                <label for="marriage">
+                                <label>
                                     <img src="./public/images/themes/casamento.jpg" alt="Tema de casamento">
                                     <span>Casamento</span>
                                     <input type="radio" name="theme" id="marriage" value="marriage">
                                 </label>
-                                <label for="baby-shower">
+                                <label>
                                     <img src="./public/images/themes/chadebebe.jpg" alt="Tema de chá de bebê">
                                     <span>Chá de bebê</span>
                                     <input type="radio" name="theme" id="baby-shower" value="baby-shower">
                                 </label>
-                                <label for="kitchen-shower">
+                                <label>
                                     <img src="./public/images/themes/chadepanela.jpg" alt="Tema de chá de panela">
                                     <span>Chá de panela</span>
                                     <input type="radio" name="theme" id="kitchen-shower" value="kitchen-shower">
                                 </label>
-                                <label for="carnival">
+                                <label>
                                     <img src="./public/images/themes/carnaval.jpg" alt="Tema de carnaval">
                                     <span>Carnaval</span>
                                     <input type="radio" name="theme" id="carnival" value="carnival">
                                 </label>
-                                <label for="easter">
+                                <label>
                                     <img src="./public/images/themes/pascoa.jpg" alt="Tema de Páscoa">
                                     <span>Páscoa</span>
                                     <input type="radio" name="theme" id="easter" value="easter">
                                 </label>
-                                <label for="saint-john">
+                                <label>
                                     <img src="./public/images/themes/saojoao.jpg" alt="Tema de São João">
                                     <span>São João</span>
                                     <input type="radio" name="theme" id="saint-john" value="saint-john">
                                 </label>
-                                <label for="halloween">
+                                <label>
                                     <img src="./public/images/themes/halloween.jpg" alt="Tema de Halloween">
                                     <span>Halloween</span>
                                     <input type="radio" name="theme" id="halloween" value="halloween">
                                 </label>
-                                <label for="christmas">
+                                <label>
                                     <img src="./public/images/themes/natal.jpg" alt="Tema de Natal">
                                     <span>Natal</span>
                                     <input type="radio" name="theme" id="christmas" value="christmas">
                                 </label>
-                                <label for="other">
+                                <label>
                                     <img src="./public/images/themes/outro.jpg" alt="Tema de Outros">
                                     <span>Outros</span>
                                     <input type="radio" name="theme" id="other" value="other">
@@ -161,15 +198,20 @@
                         <fieldset>
                             <span>Estilo</span>
                             <label class="toggle">
-                                <input type="checkbox">
+                                <input id="toggle-type-party" type="checkbox">
                                 <span class="slider"></span>
+                                <p>Escuro</p>
                             </label>
                         </fieldset>
                     </div>
                     <div class="wrapper-banner">
                         <fieldset>
                             <span>Foto de capa</span>
-                            <input type="file" id="banner" accept="image/*">
+                            <label>
+                                <span class="button"><i data-lucide="upload"></i> <span>Selecionar</span></span>
+                                <span class="text">Nenhum arquivo selecionado</span>
+                                <input type="file" id="banner" accept="image/*">
+                            </label>
                         </fieldset>
                     </div>
                     <div class="content__form-title">
@@ -179,27 +221,31 @@
                     <div class="w-full">
                         <fieldset>
                             <label for="contact-name">Nome</label>
-                            <input type="text" placeholder="Nome completo" id="contact-name">
+                            <input data-required type="text" placeholder="Nome completo" id="contact-name">
+                            <span class="message-error"><i data-lucide="alert-circle"></i> Este campo é obrigatório</span>
                         </fieldset>
                     </div>
                     <div class="w-half">
                         <fieldset>
                             <label for="contact-email">E-mail</label>
-                            <input type="email" placeholder="exemplo@email.com" id="contact-email">
+                            <input data-required type="email" placeholder="exemplo@email.com" id="contact-email">
+                            <span class="message-error"><i data-lucide="alert-circle"></i> Por favor, insira um email válido</span>
                         </fieldset>
                     </div>
                     <div class="w-half">
                         <fieldset>
                             <label for="contact-phone">Telefone</label>
-                            <input type="tel" placeholder="(99) 99999-9999" id="contact-phone">
+                            <input data-required inputmode="numeric" type="tel" placeholder="(99) 99999-9999" id="contact-phone">
+                            <span class="message-error"><i data-lucide="alert-circle"></i> Este campo é obrigatório</span>
                         </fieldset>
                     </div>
                     <hr>
                     <div class="w-full">
                         <div class="wrapper-checks">
-                            <input type="checkbox" name="termos" id="terms">
+                            <input data-required type="checkbox" name="termos" id="terms">
                             <label for="terms">Li e concordo com os <a href="#">Termos e Condições </a>e com a <a
                                     href="#">Política de Privacidade</a></label>
+                            <span class="message-error"><i data-lucide="alert-circle"></i> Este campo é obrigatório</span>
                         </div>
 
                         <div class="wrapper-checks">
