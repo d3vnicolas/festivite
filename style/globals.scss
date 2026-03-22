@@ -96,7 +96,7 @@ html {
                     margin-bottom: 12px;
                 }
 
-                input {
+                input:not([type="file"]) {
                     outline: none;
                     background-color: guide.$color-input-base;
                     border-radius: 8px;
@@ -126,6 +126,7 @@ html {
                     padding: 16px;
                     font-size: 1.6rem;
                     resize: none;
+                    margin-bottom: 48px;
 
                     &::placeholder {
                         color: guide.$color-input-placeholder;
@@ -140,6 +141,48 @@ html {
                 .wrapper-colors {
                     display: flex;
                     gap: 12px;
+                    margin-bottom: 32px;
+
+                    label {
+                        margin: 0;
+                    }
+
+                    input {
+                        appearance: none;
+                        display: none;
+
+                        &:checked+i::before {
+                            opacity: 1;
+                        }
+                    }
+
+                    i {
+                        aspect-ratio: 1;
+                        background-color: var(--color);
+                        border: 6px solid guide.$color-shape-button;
+                        border-radius: 50%;
+                        box-sizing: content-box;
+                        cursor: pointer;
+                        display: block;
+                        height: 28px;
+                        position: relative;
+                        transition: all 300ms ease;
+
+                        &::before {
+                            content: "";
+                            aspect-ratio: 1;
+                            background-color: transparent;
+                            border: 2px solid guide.$color-brand-light;
+                            border-radius: 50%;
+                            height: 38px;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            opacity: 0;
+                            transition: all 300ms ease;
+                        }
+                    }
                 }
 
                 &.slide-selection {
@@ -147,10 +190,15 @@ html {
                         display: block;
                         margin-bottom: 12px;
                     }
-                    
+
                     input {
                         appearance: none;
                         display: none;
+
+                        &:checked+ul::before {
+                            left: calc(100% - 2px);
+                            transform: translateX(-100%);
+                        }
                     }
 
                     ul {
@@ -160,21 +208,59 @@ html {
                         border: 1px solid guide.$color-input-stroke;
                         border-radius: 8px;
                         padding: 2px;
+                        position: relative;
+
+                        &::before {
+                            content: "";
+                            background-color: guide.$color-shape-button;
+                            border-radius: 5px;
+                            height: calc(100% - 4px);
+                            position: absolute;
+                            transition: all 300ms ease;
+                            top: 2px;
+                            left: 2px;
+                            width: calc(50% - 4px);
+                            z-index: 1;
+                        }
 
                         li {
-                            display: flex;
                             align-items: center;
+                            border-radius: 5px;
+                            display: flex;
+                            cursor: pointer;
+                            user-select: none;
+                            flex: 1;
                             gap: 8px;
+                            height: 42px;
+                            padding: 0 16px;
+                            position: relative;
+                            z-index: 2;
+
+                            span {
+                                margin: 0;
+                            }
+
+                            svg {
+                                transition: stroke 300ms ease;
+                            }
 
                             &.active {
-                                background-color: ;
-                                font-weight: bold;
+                                span {
+                                    font-variation-settings: "wght" 700;
+                                    margin: 0 -2.5px;
+                                }
 
                                 svg {
                                     stroke: guide.$color-brand-light;
                                 }
                             }
                         }
+                    }
+                }
+
+                &.error {
+                    .message-error {
+                        visibility: visible;
                     }
                 }
             }
@@ -191,7 +277,7 @@ html {
                     cursor: pointer;
                     padding: 2px;
                     text-align: center;
-                    transition: border-color 0.3s ease  ;
+                    transition: border-color 0.3s ease;
                     width: calc(100% / 4 - 6px);
 
                     &.active {
@@ -215,6 +301,197 @@ html {
                         appearance: none;
                         display: none;
                     }
+                }
+            }
+
+            .wrapper-style {
+                margin-right: 48px;
+
+                fieldset>span {
+                    color: guide.$color-text-body;
+                    font-size: 1.4rem;
+                    font-family: "Open Sans", sans-serif;
+                }
+
+                input {
+                    display: none;
+                }
+
+                label {
+                    align-items: center;
+                    display: flex;
+                    gap: 10px;
+                    margin: 6px 0 0;
+
+                    span {
+                        margin: 0;
+                    }
+
+                    p {
+                        width: 44px;
+                    }
+                }
+            }
+
+            .wrapper-banner {
+                fieldset>span {
+                    color: guide.$color-text-body;
+                    font-size: 1.4rem;
+                    font-family: "Open Sans", sans-serif;
+                }
+
+                input {
+                    display: none;
+                }
+
+                label {
+                    align-items: center;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 12px;
+
+                    .button {
+                        align-items: center;
+                        background-color: guide.$color-shape-button;
+                        border-radius: 8px;
+                        color: guide.$color-text-heading;
+                        cursor: pointer;
+                        display: flex;
+                        gap: 10px;
+                        height: 40px;
+                        margin: 0;
+                        padding: 0 14px;
+                        width: fit-content;
+
+                        svg {
+                            stroke: guide.$color-brand-light;
+                            width: 16px;
+                        }
+
+                        span {
+                            margin: 0;
+                        }
+                    }
+
+                    .text {
+                        color: guide.$color-input-placeholder;
+                        font-size: 1.6rem;
+                        margin: 0;
+
+                        &.selected {
+                            color: guide.$color-text-heading;
+                        }
+                    }
+                }
+            }
+
+            hr {
+                background-color: guide.$color-input-stroke;
+                border: none;
+                height: 1px;
+                margin: 32px 0;
+                width: 100%;
+            }
+
+            .wrapper-checks {
+                align-items: center;
+                flex-wrap: wrap;
+                display: flex;
+                gap: 8px;
+                position: relative;
+
+                &.error .message-error {
+                    visibility: visible;
+                }
+
+                .message-error {
+                    position: absolute;
+                    top: -16px;
+                    transform: translateY(-100%);
+                }
+
+                +.wrapper-checks {
+                    margin-top: 8px;
+                }
+
+                &.selected {
+                    position: relative;
+
+                    &::after {
+                        content: "";
+                        width: 5px;
+                        height: 10px;
+                        border-right: 2px solid guide.$color-brand-light;
+                        border-bottom: 2px solid guide.$color-brand-light;
+                        transform: rotate(45deg);
+                        position: absolute;
+                        top: 3px;
+                        left: 7px;
+                    }
+                }
+
+                label {
+                    color: guide.$color-text-body;
+                    font-size: 1.4rem;
+                    font-family: 'Open Sans', sans-serif;
+                    user-select: none;
+
+                    a {
+                        color: guide.$color-brand-light;
+                    }
+                }
+
+                input {
+                    appearance: none;
+                    background-color: guide.$color-input-base;
+                    border: 1px solid guide.$color-input-stroke;
+                    border-radius: 4px;
+                    cursor: pointer;
+
+                    height: 20px;
+                    width: 20px;
+
+                    &:checked {
+                        border-color: guide.$color-brand-light;
+                    }
+                }
+            }
+
+            button[type="submit"] {
+                align-items: center;
+                background-color: guide.$color-brand-dark;
+                border: none;
+                border-radius: 8px;
+                color: guide.$color-text-heading;
+                cursor: pointer;
+                display: flex;
+                font-size: 1.6rem;
+                font-family: 'Open Sans', sans-serif;
+                font-weight: 600;
+                gap: 12px;
+                height: 48px;
+                padding: 0 18px;
+                margin: 32px 0 0 auto;
+                transition: background-color 300ms ease;
+
+                &:hover {
+                    background-color: guide.$color-brand-light;
+                }
+            }
+
+            .message-error {
+                align-items: center;
+                color: guide.$color-danger;
+                display: flex;
+                font-size: 1.2rem;
+                margin: 4px 0 0;
+                gap: 8px;
+                width: 100%;
+                visibility: hidden;
+
+                svg {
+                    height: 16px;
+                    width: 16px;
                 }
             }
         }
