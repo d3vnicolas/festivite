@@ -1,0 +1,112 @@
+$color-brand-light: #59b2ff;
+$color-brand-mid: #3487cf;
+$color-brand-dark: #1d6fb6;
+
+$color-accent-purple: #b259ff;
+$color-accent-fuschia: #ff59f9;
+$color-accent-pink: #ff598b;
+$color-accent-orange: #ff8b59;
+$color-accent-yellow: #ffcd59;
+$color-accent-lime: #e1ff59;
+$color-accent-gree: #59ff91;
+$color-accent-cyan: #59fff9;
+$color-accent-navy: #6a59ff;
+
+$color-fanger: #ff5959;
+
+$color-input-base: #1c1f21;
+$color-input-stroke: #363b40;
+$color-input-placeholder: #869198;
+
+$color-shape-background: #131516;
+$color-shape-body: #212427;
+$color-shape-button: #2d3136;
+$color-shape-hover: #383d42;
+
+$color-text-body: #c8cdd0;
+$color-text-heading: #f9f9f9;
+
+@font-face {
+    font-family: "Baloo";
+    src: url("../public/fonts/Baloo_2/Baloo2-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Leckerli";
+    src: url("../public/fonts/Leckerli_One/LeckerliOne-Regular.ttf") format("truetype");
+    font-weight: 100 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: url("../public/fonts/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf") format("truetype");
+    font-weight: 100 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.w-half {
+    width: calc(50% - 8px);
+}
+
+$sliderBackground: #cccccc;
+$sliderDotBackground: #ffffff;
+$sliderBackgroundOn: #2ca60a;
+$sliderHeight: 22px;
+$borderProportional: if(
+    $sliderHeight < 32px,
+    $sliderHeight * 0.3,
+    $sliderHeight * 0.2
+);
+
+@mixin circle($size: 16px) {
+    border-radius: 50%;
+    height: $size;
+    width: $size;
+}
+
+.toggle {
+    input {
+        appearance: none;
+
+        &:checked {
+            + .slider {
+                background-color: $sliderBackgroundOn;
+
+                &::after {
+                    left: calc(100% - #{$sliderHeight} / 2);
+                }
+            }
+        }
+    }
+
+    .slider {
+        background: $sliderBackground;
+        border-radius: $sliderHeight;
+        display: block;
+        height: $sliderHeight;
+        position: relative;
+        transition: all 300ms ease;
+        width: calc(#{$sliderHeight} * 2.5);
+
+        &::after {
+            background-color: $sliderDotBackground;
+            content: "";
+            left: $sliderHeight / 2;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 300ms ease;
+            @include circle($sliderHeight - $borderProportional);
+        }
+    }
+}
